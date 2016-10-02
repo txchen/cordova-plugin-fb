@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-fb",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "cordova plugin that wraps facebook sdk",
   "scripts": {
   },

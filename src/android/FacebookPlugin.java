@@ -2,6 +2,7 @@ package com.fb;
 
 import org.apache.cordova.*;
 import android.app.Activity;
+import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,7 +17,8 @@ public class FacebookPlugin extends CordovaPlugin {
         if (action.equals("sendActivateAppEvent")) {
             Activity activity = getActivity();
             FacebookSdk.sdkInitialize(activity.getApplicationContext());
-            AppEventsLogger.activateApp(activity);
+            AppEventsLogger.activateApp(activity.getApplication());
+            Log.i(LOG_TAG, "called AppEventsLogger.activateApp");
             return true;
         } else {
             return false;
