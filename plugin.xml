@@ -6,7 +6,7 @@
     xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest"
     xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
     id="cordova-plugin-fb"
-    version="1.0.0">
+    version="0.9.0">
 
     <name>Cordova-plugin-fb</name>
     <description>Cordova-plugin-fb</description>
@@ -19,6 +19,8 @@
         <clobbers target="fb" />
     </js-module>
 
+    <preference name="FB_APP_ID" />
+
     <!-- android -->
     <platform name="android">
 
@@ -30,17 +32,18 @@
 
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.INTERNET" />
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-            <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+        </config-file>
 
-            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+        <config-file target="./res/values/strings.xml" parent="/resources">
+            <string name="facebook_app_id">$FB_APP_ID</string>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="application">
+            <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         </config-file>
 
         <source-file src="src/android/FacebookPlugin.java" target-dir="src/com/fb/"/>
-        <source-file src="src/android/facebook-android-sdk-4.16.0.aar" target-dir="libs" framework="true" />
-        <source-file src="build-extras.gradle" target-dir="."/>
+        <framework src="com.facebook.android:facebook-android-sdk:4.14.+"/>
     </platform>
 
 </plugin>

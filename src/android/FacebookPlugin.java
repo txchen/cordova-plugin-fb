@@ -2,6 +2,9 @@ package com.fb;
 
 import org.apache.cordova.*;
 import android.app.Activity;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
