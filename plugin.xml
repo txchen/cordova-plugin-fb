@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest"
+    xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+    id="cordova-plugin-fb"
+    version="1.0.0">
+
+    <name>Cordova-plugin-fb</name>
+    <description>Cordova-plugin-fb</description>
+    <license>MIT</license>
+    <keywords>cordova,facebook</keywords>
+    <repo>https://github.com/txchen/cordova-plugin-fb</repo>
+    <issue>https://github.com/txchen/cordova-plugin-fb/issues</issue>
+
+    <js-module src="www/fb.js" name="fb">
+        <clobbers target="fb" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FacebookPlugin">
+                <param name="android-package" value="com.fb.FacebookPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+        </config-file>
+
+        <source-file src="src/android/FacebookPlugin.java" target-dir="src/com/fb/"/>
+        <source-file src="src/android/facebook-android-sdk-4.16.0.aar" target-dir="libs" framework="true" />
+        <source-file src="build-extras.gradle" target-dir="."/>
+    </platform>
+
+</plugin>

@@ -1,0 +1,11 @@
+repositories {
+  flatDir {
+    dirs 'libs'
+  }
+  jcenter()
+}
+
+dependencies {
+  compile(name: 'AudienceNetwork', ext: 'aar')
+  compile(name: 'unity-ads', ext: 'aar')
+}

@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-fb",
+  "version": "1.0.0",
+  "description": "cordova plugin that wraps facebook sdk",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/txchen/cordova-plugin-fb.git"
+  },
+  "cordova": {
+    "id": "cordova-plugin-fb",
+    "platforms": [
+      "android"
+    ]
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/txchen/cordova-plugin-fb/issues"
+  },
+  "homepage": "https://github.com/txchen/cordova-plugin-fb#readme"
+}
